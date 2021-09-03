@@ -60,29 +60,23 @@ public class minesweeperGUI {
 	panel2.setLayout( new GridLayout( cols, rows ) );
 	panel2.setBounds(0, 1000, cols, rows);
 	
-	for(int i=0;i<rows;i++) {
-		for(int j=0;j<cols;j++) {
-	miningFields[i]=new JButton();
-	miningFields[i].setPreferredSize(new Dimension(25, 25));;
-	miningFields[i].addActionListener(e -> open());
-	panel2.add(miningFields[i]);
+	setButtons(panel2, miningFields);
+	}
+
+
+
+	private static void setButtons(JPanel panel2, JButton[] miningFields) {
+		for(int i=0;i<rows;i++) {
+			for(int j=0;j<cols;j++) {
+		miningFields[i]=new JButton();
+		miningFields[i].setPreferredSize(new Dimension(25, 25));;
+		miningFields[i].addActionListener(e -> open());
+		panel2.add(miningFields[i]);
+			}
 		}
 	}
-	
-	
-	
-	
-	
-	}
 
 
-	//TODO setMines
-	/*
-	 Random r = new Random();
-	 int i = r.nextInt(rows);
-	 int j = r.nextInt(cols);
-	 */
-	
 	
 	private static Object open() {
 		// TODO

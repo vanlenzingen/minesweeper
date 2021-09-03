@@ -68,14 +68,15 @@ public class minesweeperGame {
 				//TODO
 			}
 			
+			//
 			neighbors[0] = new Pair<Integer,Integer>(col-1, row-1);
-			neighbors[1] = new Pair<Integer,Integer>(col, row-1);
-			neighbors[2] = new Pair<Integer,Integer>(col+1, row-1);
-			neighbors[3] = new Pair<Integer,Integer>(col-1, row);
-			neighbors[4] = new Pair<Integer,Integer>(col-1, row+1);
+			neighbors[1] = new Pair<Integer,Integer>(col-1, row);
+			neighbors[2] = new Pair<Integer,Integer>(col-1, row+11);
+			neighbors[3] = new Pair<Integer,Integer>(col, row-1);
+			neighbors[4] = new Pair<Integer,Integer>(col, row+1);
 			neighbors[5] = new Pair<Integer,Integer>(col+1, row-1);
-			neighbors[6] = new Pair<Integer,Integer>(col+1, row-1);
-			neighbors[7] = new Pair<Integer,Integer>(col+1, row);
+			neighbors[6] = new Pair<Integer,Integer>(col+1, row);
+			neighbors[7] = new Pair<Integer,Integer>(col+1, row+1);
 			
 			return neighbors;
 		}

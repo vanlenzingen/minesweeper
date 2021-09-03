@@ -69,6 +69,7 @@ public class minesweeperGame {
 			}
 			
 			//
+			
 			neighbors[0] = new Pair<Integer,Integer>(col-1, row-1);
 			neighbors[1] = new Pair<Integer,Integer>(col-1, row);
 			neighbors[2] = new Pair<Integer,Integer>(col-1, row+11);

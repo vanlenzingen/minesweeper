@@ -55,30 +55,49 @@ public class minesweeperGame {
 		public Pair<Integer, Integer>[] getNeighborsIndex(int col, int row){
 			neighbors = null;
 			
-			if(col == 0) {
-				//TODO
-			}
-			if (row == 0) {
-				//TODO
-			}
-			if (col == minesweeperGame.getCols()) {
-				//TODO
-			}
-			if(row == minesweeperGame.getRows()) {
-				//TODO
-			}
 			
-			//
-			
-			neighbors[0] = new Pair<Integer,Integer>(col-1, row-1);
-			neighbors[1] = new Pair<Integer,Integer>(col-1, row);
-			neighbors[2] = new Pair<Integer,Integer>(col-1, row+11);
-			neighbors[3] = new Pair<Integer,Integer>(col, row-1);
-			neighbors[4] = new Pair<Integer,Integer>(col, row+1);
-			neighbors[5] = new Pair<Integer,Integer>(col+1, row-1);
-			neighbors[6] = new Pair<Integer,Integer>(col+1, row);
-			neighbors[7] = new Pair<Integer,Integer>(col+1, row+1);
-			
+			if(col == 0 && row != 0 && row != rows) {
+				neighbors[0] = new Pair<Integer,Integer>(col, row-1);
+				neighbors[1] = new Pair<Integer,Integer>(col, row+1);
+				neighbors[2] = new Pair<Integer,Integer>(col+1, row-1);
+				neighbors[3] = new Pair<Integer,Integer>(col+1, row);
+				neighbors[4] = new Pair<Integer,Integer>(col+1, row+1);
+			} else if(col == cols && row != 0 && row != rows) {
+				neighbors[0] = new Pair<Integer,Integer>(col-1, row-1);
+				neighbors[1] = new Pair<Integer,Integer>(col-1, row);
+				neighbors[2] = new Pair<Integer,Integer>(col-1, row+1);
+				neighbors[3] = new Pair<Integer,Integer>(col, row-1);
+				neighbors[4] = new Pair<Integer,Integer>(col, row+1);
+			} else if(row == 0 && col != 0 && col != cols) {
+				neighbors[0] = new Pair<Integer,Integer>(col-1, row);
+				neighbors[1] = new Pair<Integer,Integer>(col-1, row+1);
+				neighbors[2] = new Pair<Integer,Integer>(col, row+1);
+				neighbors[3] = new Pair<Integer,Integer>(col+1, row);
+				neighbors[4] = new Pair<Integer,Integer>(col+1, row+1);
+			} else if(row == rows && col != 0 && col != cols) {
+				neighbors[0] = new Pair<Integer,Integer>(col-1, row-1);
+				neighbors[1] = new Pair<Integer,Integer>(col-1, row);
+				neighbors[2]= new Pair<Integer,Integer>(col, row-1);
+				neighbors[3] = new Pair<Integer,Integer>(col+1, row-1);
+				neighbors[4] = new Pair<Integer,Integer>(col+1, row);
+			} else if(row == 0 && col == 0) {
+				neighbors[0] = new Pair<Integer,Integer>(col, row+1);
+				neighbors[1] = new Pair<Integer,Integer>(col+1, row);
+				neighbors[2] = new Pair<Integer,Integer>(col+1, row+1);
+			} else if(row == rows && col == cols) {
+				neighbors[0] = new Pair<Integer,Integer>(col-1, row-1);
+				neighbors[1] = new Pair<Integer,Integer>(col-1, row);
+				neighbors[2] = new Pair<Integer,Integer>(col, row-1);
+			} else {
+				neighbors[0] = new Pair<Integer,Integer>(col-1, row-1);
+				neighbors[1] = new Pair<Integer,Integer>(col-1, row);
+				neighbors[2] = new Pair<Integer,Integer>(col-1, row+1);
+				neighbors[3] = new Pair<Integer,Integer>(col, row-1);
+				neighbors[4] = new Pair<Integer,Integer>(col, row+1);
+				neighbors[5] = new Pair<Integer,Integer>(col+1, row-1);
+				neighbors[6] = new Pair<Integer,Integer>(col+1, row);
+				neighbors[7] = new Pair<Integer,Integer>(col+1, row+1);
+			}
 			return neighbors;
 		}
 

@@ -47,15 +47,16 @@ public class minesweeperGame {
 				
 				Pair<Integer, Integer>[] neighbors = getNeighborsIndex(x,y);	
 							
+				for(int j = 0; j<neighbors.length;j++) {
+					field[neighbors[j].getX()][neighbors[j].getY()]++;
+				}
 			}
-			
 			return field;
 		}
 
+		
 		public Pair<Integer, Integer>[] getNeighborsIndex(int col, int row){
 			neighbors = null;
-			
-			
 			if(col == 0 && row != 0 && row != rows) {
 				neighbors[0] = new Pair<Integer,Integer>(col, row-1);
 				neighbors[1] = new Pair<Integer,Integer>(col, row+1);

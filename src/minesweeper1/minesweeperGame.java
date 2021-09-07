@@ -27,12 +27,14 @@ public class minesweeperGame {
 	//TODO
 		static Object resetGame() {
 			setMinePosition(rows, cols, mines);
+			fillField(minePositions, cols, rows);
 			//setButtons
+			
 			System.out.println("reset");
 			return null;
 		}
 		
-		static int[][] fillField(Pair<Integer, Integer> minePosition, int cols, int rows) {
+		static int[][] fillField(Pair<Integer, Integer> minePositions[], int cols, int rows) {
 		// init field
 			for(int i=0;i<cols;i++) {
 				for(int j=0;j<rows;j++) {

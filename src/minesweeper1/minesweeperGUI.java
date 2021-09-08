@@ -39,7 +39,7 @@ public class minesweeperGUI {
 	firstFrame.setResizable(false);
 	firstFrame.add(panel1);
 	firstFrame.setJMenuBar(menuBar);
-	firstFrame.setVisible(true);
+	
 	
 	
 	// TODO actionlistener
@@ -49,7 +49,7 @@ public class minesweeperGUI {
 	
 	
 	
-	
+	//TODO events funktionieren im menü nicht addMenuListener
 	resetButton.addActionListener(e -> minesweeperGame.resetGame());
 	resetButton.setVisible(true);
 	
@@ -61,6 +61,7 @@ public class minesweeperGUI {
 	panel2.setBounds(0, 1000, cols, rows);
 	
 	setButtons(panel2, miningFields);
+	firstFrame.setVisible(true);
 	}
 
 
@@ -68,9 +69,10 @@ public class minesweeperGUI {
 	private static void setButtons(JPanel panel2, JButton[] miningFields) {
 		for(int i=0;i<rows;i++) {
 			for(int j=0;j<cols;j++) {
-		miningFields[i]=new JButton();
+				Pair<Integer, Integer> koords = new Pair<Integer, Integer>(i,j);
+		miningFields[i]=new miningButton(koords);
 		miningFields[i].setPreferredSize(new Dimension(25, 25));;
-		miningFields[i].addActionListener(e -> open());
+		
 		panel2.add(miningFields[i]);
 			}
 		}
@@ -78,11 +80,7 @@ public class minesweeperGUI {
 
 
 	
-	private static Object open() {
-		// TODO
-		System.out.println("show hidden number");
-		return null;
-	}
+	
 
 
 	

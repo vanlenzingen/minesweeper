@@ -4,9 +4,9 @@ import java.util.Random;
 
 
 public class minesweeperGame {
-	static int rows = 15;
-	static int cols = 15;
-	static int mines = 10;
+	static int rows = 5;
+	static int cols = 5;
+	static int mines = 2;
 	static Pair<Integer, Integer>[] minePositions;
 	
 	
@@ -22,7 +22,6 @@ public class minesweeperGame {
 	}
 	
 	public static int[][] field;
-	private Pair<Integer, Integer>[] neighbors;
 	
 	//TODO
 		static Object resetGame() {
@@ -46,9 +45,7 @@ public class minesweeperGame {
 				int x =minePositions[i].getX();
 				int y =minePositions[i].getY();
 				field[x][y]=-1;
-				
-				Pair<Integer, Integer>[] neighbors = getNeighborsIndex(x,y);	
-							
+				Pair<Integer, Integer>[] neighbors = getNeighborsIndex(x,y);				
 				for(int j = 0; j<neighbors.length;j++) {
 					field[neighbors[j].getX()][neighbors[j].getY()]++;
 				}
@@ -57,8 +54,8 @@ public class minesweeperGame {
 		}
 
 		
-		public Pair<Integer, Integer>[] getNeighborsIndex(int col, int row){
-			neighbors = null;
+		public static Pair<Integer, Integer>[] getNeighborsIndex(int col, int row){
+			Pair<Integer, Integer>[] neighbors = null;
 			if(col == 0 && row != 0 && row != rows) {
 				neighbors[0] = new Pair<Integer,Integer>(col, row-1);
 				neighbors[1] = new Pair<Integer,Integer>(col, row+1);

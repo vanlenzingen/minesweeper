@@ -4,9 +4,9 @@ import java.util.Random;
 
 
 public class minesweeperGame {
-	static int rows = 5;
-	static int cols = 5;
-	static int mines = 2;
+	static int rows = 15;
+	static int cols = 15;
+	static int mines = 10;
 	static Pair<Integer, Integer>[] minePositions;
 	
 	
@@ -25,11 +25,10 @@ public class minesweeperGame {
 	
 	//TODO
 		static Object resetGame() {
+			System.out.println("reset game");
 			setMinePosition(rows, cols, mines);
 			fillField(minePositions, cols, rows);
 			//setButtons
-			
-			System.out.println("reset");
 			return null;
 		}
 		

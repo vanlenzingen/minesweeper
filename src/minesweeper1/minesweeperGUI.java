@@ -6,12 +6,16 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.event.MenuListener;
 
 public class minesweeperGUI {
 
+	private static final MenuListener MenuEvent = null;
 	static int rows = minesweeperGame.getRows();
 	static int cols = minesweeperGame.getCols();
 	int mines = minesweeperGame.getMines();
@@ -29,10 +33,16 @@ public class minesweeperGUI {
 
 	JPanel panel1 = new JPanel();
 	JPanel panel2 = new JPanel();
-	JMenuBar menuBar = new JMenuBar();
 	
-	JMenu resetButton = new JMenu ("New Game");
-	JMenu settings = new JMenu ("Settings");
+	
+	JMenuBar menuBar = new JMenuBar();
+	JMenu menu = new JMenu ("Menu");
+	JMenuItem newGame = new JMenuItem("New Game");
+	newGame.addActionListener(e -> minesweeperGame.resetGame());
+	JMenuItem settings = new JMenuItem ("Settings");
+	settings.addActionListener(e -> openSettings());
+	
+	
 	JButton[] miningFields = new JButton[rows*cols];
 	
 	firstFrame.setSize(breite, hoehe);
@@ -40,18 +50,23 @@ public class minesweeperGUI {
 	firstFrame.add(panel1);
 	firstFrame.setJMenuBar(menuBar);
 	
+
 	
+	
+	//TODO
+	
+	menu.add(newGame);
+	menu.add(settings);
 	
 	// TODO actionlistener
-	menuBar.add(resetButton);
-	menuBar.add(settings);
+	menuBar.add(menu);
 	menuBar.setVisible(true);
 	
 	
 	
 	//TODO events funktionieren im menü nicht addMenuListener
-	resetButton.addActionListener(e -> minesweeperGame.resetGame());
-	resetButton.setVisible(true);
+	//resetButton.addMenuListener(MenuEvent e);
+	menu.setVisible(true);
 	
 	
 	panel1.add(panel2);
@@ -62,6 +77,38 @@ public class minesweeperGUI {
 	
 	setButtons(panel2, miningFields);
 	firstFrame.setVisible(true);
+	}
+
+
+
+	private static Object openSettings() {
+		JFrame settingsFrame = new JFrame("settings");
+		JPanel settingsPanel = new JPanel();
+		
+		JLabel rows = new JLabel("Rows:");
+		JLabel cols = new JLabel("Cols:");
+		JLabel mines = new JLabel("mines:");
+		
+		JButton ok = new JButton("Ok");
+		JButton exit = new JButton("exit");
+	
+		
+		
+		
+		settingsFrame.setSize(500, 500);
+		settingsFrame.setResizable(false);
+		settingsFrame.add(settingsPanel);
+		settingsFrame.setVisible(true);
+		
+		settingsFrame.add(rows);
+		settingsFrame.add(cols);
+		settingsFrame.add(mines);
+		
+		settingsFrame.add(ok);
+		settingsFrame.add(exit);
+		
+		System.out.println("settings opened");
+		return null;
 	}
 
 

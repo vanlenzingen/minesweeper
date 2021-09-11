@@ -15,5 +15,5 @@ public class Pair<X, Y> {
 		return Y;
 	}
 	
-	//12323245364
+	//test auto
 } 

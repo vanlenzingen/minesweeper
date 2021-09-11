@@ -10,6 +10,13 @@ public class minesweeperGame {
 	static Pair<Integer, Integer>[] minePositions;
 	
 	
+	minesweeperGame(int rows, int cols, int mines){
+		minesweeperGame.rows = rows;
+		minesweeperGame.cols = cols;
+		minesweeperGame.mines = mines;
+	}
+	
+	
 	private static void setMinePosition(int rows, int cols, int mines) {
 		for(int i=0;i<mines;i++) {
 			Random r = new Random();

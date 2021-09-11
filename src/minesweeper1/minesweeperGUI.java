@@ -11,6 +11,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.event.MenuListener;
 
 public class minesweeperGUI {
@@ -84,28 +85,56 @@ public class minesweeperGUI {
 	private static Object openSettings() {
 		JFrame settingsFrame = new JFrame("settings");
 		JPanel settingsPanel = new JPanel();
+		settingsPanel.setLayout(null);
 		
 		JLabel rows = new JLabel("Rows:");
+		rows.setLayout(null);
+		rows.setBounds(25, 25, 100, 50);
 		JLabel cols = new JLabel("Cols:");
-		JLabel mines = new JLabel("mines:");
+		cols.setLayout(null);
+		cols.setBounds(25, 85, 100, 50);
+		JLabel mines = new JLabel("Mines:");
+		mines.setLayout(null);
+		mines.setBounds(25, 125, 100, 50);
+		
+		
+		JTextField rowInput = new JTextField("");
+		rowInput.setLayout(null);
+		rowInput.setBounds(150, 40, 100, 25);
+		JTextField colInput = new JTextField("");
+		colInput.setLayout(null);
+		colInput.setBounds(150, 95, 100, 25);
+		JTextField minesInput = new JTextField("");
+		minesInput.setLayout(null);
+		minesInput.setBounds(150, 140, 100, 25);
 		
 		JButton ok = new JButton("Ok");
+		ok.setBounds(25, 200, 100, 25);
+		ok.setVisible(true);
+		//popup?
+		ok.addActionListener(e -> minesweeperGame.resetGame());
 		JButton exit = new JButton("exit");
-	
+		exit.addActionListener(e -> settingsFrame.setVisible(false));
+		exit.setBounds(150, 200, 100, 25);
+		exit.setVisible(true);
 		
 		
 		
-		settingsFrame.setSize(500, 500);
+		settingsFrame.setSize(300, 300);
 		settingsFrame.setResizable(false);
 		settingsFrame.add(settingsPanel);
 		settingsFrame.setVisible(true);
 		
-		settingsFrame.add(rows);
-		settingsFrame.add(cols);
-		settingsFrame.add(mines);
+		settingsPanel.add(rows);
+		settingsPanel.add(cols);
+		settingsPanel.add(mines);
 		
-		settingsFrame.add(ok);
-		settingsFrame.add(exit);
+		settingsPanel.add(rowInput);
+		settingsPanel.add(colInput);
+		settingsPanel.add(minesInput);
+		
+		settingsPanel.add(ok);
+		settingsPanel.add(exit);
 		
 		System.out.println("settings opened");
 		return null;

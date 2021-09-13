@@ -61,6 +61,8 @@ public class minesweeperGame {
 			}
 			return field;
 		}
+		
+		//halllöchen 
 
 		
 		public static Pair<Integer, Integer>[] getNeighborsIndex(int col, int row){

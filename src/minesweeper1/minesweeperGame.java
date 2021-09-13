@@ -53,7 +53,10 @@ public class minesweeperGame {
 				field[x][y]=-1;
 				Pair<Integer, Integer>[] neighbors = getNeighborsIndex(x,y);				
 				for(int j = 0; j<neighbors.length;j++) {
+					//TODO if nachbar != 0;
+					if(field[neighbors[j].getX()][neighbors[j].getY()] != -1) {
 					field[neighbors[j].getX()][neighbors[j].getY()]++;
+					}
 				}
 			}
 			return field;

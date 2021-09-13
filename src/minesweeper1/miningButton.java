@@ -15,9 +15,11 @@ public class miningButton extends JButton{
 	miningButton(Pair<Integer, Integer> position) {
 		super();
 		this.position = position;
+		
+		//TODO
 		this.addActionListener(e -> open());	
-		/*
-		this.addMouseListener(new MouseAdapter() ;
+		
+		this.addMouseListener(new MouseAdapter()
 		{
 			public void mouseClicked(MouseEvent event) 
 			{
@@ -26,14 +28,12 @@ public class miningButton extends JButton{
 					JButton btn = (JButton) event.getSource();
 					btn.doClick();
 					System.out.println("Rechtsclick");
-				} else {
-					System.out.println("Linksclick");
-				}
-		
-			};
-		}
-	*/
-	}
+					} else {
+						System.out.println("Linksclick");
+					}
+			}
+			});
+}
 	
 	private void flagButton() {
 		if(this.isFlag()) {
@@ -74,4 +74,5 @@ public class miningButton extends JButton{
 		this.setVisible(false);
 		System.out.println("show hidden number");
 	}
-		}
+}
+	
